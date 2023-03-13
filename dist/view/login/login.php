@@ -11,7 +11,7 @@ if(!isset($_GET['code'])){
 }
 elseif(!isset($_COOKIE['accesstoken'])){
     echo "<script>sessionStorage.setItem('login', '1');</script>";
-      include 'http://camai.doppelherz.vn/dist/api/token.php';
+      include 'D:/laragon/www/huma_new/dist/api/token.php';
 }
 else{
 

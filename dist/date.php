@@ -178,24 +178,23 @@ include "config/function.php";?>
                                         <?php
 
                                     for($i=1;$i<$Month;$i++){ 
-                                        $date="".$i."-$dateMonth-$dateYear";
-
-                                            $datedaysql=date('Y-m-d',strtotime($date.'+'.$i.'days'));
+                                        $date="$dateYear-$dateMonth-".$i."";
+                                            $datedaysql=date('Y-m-d',strtotime($date));
                                             if($datedaysql==$hien['date']){
-                                                $datevn=date("d-m-Y",strtotime($date.'+'.$i.' days'));
+                                                // $datevn=date("d-m-Y",strtotime($date.'+'.$i.' days'));
                                                 
                                                 echo'
                                                 <td>
                                                 <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
                                                 <small><strong class="js-lists-values-name text-black-100">'.$hien['role'].'</strong></small>
-                                                <small class="text-black-50">'.$hien['time_now'].' - '.$hien['time_out'].'</small>
+
                                                 </a>
                                                 
                                                 </td>';
                                                 
                                             }                                             
                                             else{
-                                                echo'<td>';                                                  
+                                                echo'<td>';                                        
                                                     echo '</td>';
                                                 }
                                             }
