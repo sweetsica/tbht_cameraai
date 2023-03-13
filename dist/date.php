@@ -1,6 +1,15 @@
 <?php include "view/head.php";?>
 <?php include "config/sql.php";
-include "config/function.php";?>
+include "config/function.php";
+date_default_timezone_set('Asia/Ho_Chi_Minh');
+                $dateday=date('d');
+                $datetime=date('H:i');
+                $dateMonth=date('m');
+                $dateYear=date('Y');
+                $datedaysql=date('Y-m-d');
+                $dateactually=date('Y-m-d');
+                $dateMonthYear=date('m-Y');
+?>
 
 
 
@@ -11,14 +20,14 @@ include "config/function.php";?>
         <div class="flex d-flex flex-column flex-sm-row align-items-center mb-24pt mb-md-0">
 
             <div class="mb-24pt mb-sm-0 mr-sm-24pt">
-                <h2 class="mb-0">Nhân Viên</h2>
+                <h2 class="mb-0">Chấm Công Trong <?php echo $dateMonthYear;?></h2>
 
                 <ol class="breadcrumb p-0 m-0">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
 
                     <li class="breadcrumb-item active">
 
-                        Cấm Công
+                        Chấm Công
                     </li>
 
                 </ol>
@@ -34,13 +43,7 @@ include "config/function.php";?>
 
 <div class="container-fluid page__container page__container page-section">
 <?php
-                date_default_timezone_set('Asia/Ho_Chi_Minh');
-                $dateday=date('d');
-                $datetime=date('H:i');
-                $dateMonth=date('m');
-                $dateYear=date('Y');
-                $datedaysql=date('Y-m-d');
-                $dateactually=date('Y-m-d');
+
                 $Month=0;
                 switch ($dateMonth)
                 {
