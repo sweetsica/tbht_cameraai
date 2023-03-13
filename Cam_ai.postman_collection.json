@@ -1,0 +1,1388 @@
+{
+	"info": {
+		"_postman_id": "f8cc94a8-9df5-4905-941e-be35c0d049e8",
+		"name": "Cam_ai",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25535755"
+	},
+	"item": [
+		{
+			"name": "Cam_ai",
+			"item": [
+				{
+					"name": "dist",
+					"item": [
+						{
+							"name": "api",
+							"item": [
+								{
+									"name": "ban",
+									"item": [
+										{
+											"name": "create",
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"id\":\"6\",\r\n    \"name_company\":\"Doppel herz\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{url}}/dist/api/ban/create.php",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"dist",
+														"api",
+														"ban",
+														"create.php"
+													]
+												},
+												"description": "StartFragment\n\nEndFragment\n\n  \n  \n\n| \"id\":\"6\" | **int (Mã ban)** |\n| --- | --- |\n|  \"name_company\":\"Doppel herz\" | String (tên phòng ban ) |"
+											},
+											"response": []
+										},
+										{
+											"name": "delete.php",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"id\":\"6\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{url}}/dist/api/ban/delete.php",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"dist",
+														"api",
+														"ban",
+														"delete.php"
+													]
+												},
+												"description": "| \"id\":\"6\" | **int (Mã số ban muốn xóa)** |\n| --- | --- |"
+											},
+											"response": []
+										},
+										{
+											"name": "read.php",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{url}}/dist/api/ban/read.php",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"dist",
+														"api",
+														"ban",
+														"read.php"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "show.php",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{url}}/dist/api/ban/show.php?id=7",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"dist",
+														"api",
+														"ban",
+														"show.php"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "7"
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "update.php",
+											"request": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"id\":\"7\",\r\n    \"name_company\":\"Thái Hưng\",\r\n    \"level\":\"0\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{url}}/dist/api/ban/update.php",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"dist",
+														"api",
+														"ban",
+														"update.php"
+													]
+												},
+												"description": "| **id** | **int (Mã ban muốn sửa)** |\n| --- | --- |\n| name_company | String (tên phòng ban muốn sửa) |\n| level | int cấp của phòng ban |\n\nlevel sẽ đi từ cấp (0-2) 0: ban ,1: phòng,2 tổ nhưng hiện tai chưa cập nhật"
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "nhan_vien",
+									"item": [
+										{
+											"name": "create.php",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												},
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"auth": {
+													"type": "apikey"
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"id\":\"9\",\r\n    \"fullname\":\"Nguyễn Văn A\",\r\n    \"email\":\"vanA@gmail.com\",\r\n    \"date_birth\":\"2003-05-31\",\r\n    \"date_job_receive\":\"2022-04-21\",\r\n    \"status\":\"Đang làm\",\r\n    \"role\":\"Admin\"\r\n\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{url}}/dist/api/nhan_vien/create.php",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"dist",
+														"api",
+														"nhan_vien",
+														"create.php"
+													]
+												},
+												"description": "| **id:9** | int (mã nhân viên) |\n| --- | --- |\n| fullname:\"Họ và Tên\" | String (Họ và tên nhân viên) |\n| email:\"sda@dsad\" | String (địa chỉ của gamil nhân viên có kí tự @) |\n| date_birth:\"2002-21-02\" | date YYYY-mm-dd (ngày sinh nhân viên ) |\n| date_job_receive:\"2002-21-02\" | date YYYY-mm-dd (ngày nhân viên vào công ty nhân viên ) |\n| status:\"Đang làm\" | String (tình trạng của nhân viên hiện tại ) |\n| role:\"nhân viên\" | String (chức vụ của nhân viên ) |\n\nstatus:ghi lại tình hình của nhân viên{đang làm , đã nghỉ ,...}\n\nrole: cách chức vụ có thể chọn {Admin, quản lý , nhân viên}\n\nEndFragmen"
+											},
+											"response": []
+										},
+										{
+											"name": "delete.php",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"id\":\"9\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://huma_new.test:8081/dist/api/nhan_vien/delete.php?",
+													"protocol": "http",
+													"host": [
+														"huma_new",
+														"test"
+													],
+													"port": "8081",
+													"path": [
+														"dist",
+														"api",
+														"nhan_vien",
+														"delete.php"
+													],
+													"query": [
+														{
+															"key": "",
+															"value": null
+														}
+													]
+												},
+												"description": "| **id=\"9\"** | **int (mã nhân viên muốn xóa)** |\n| --- | --- |"
+											},
+											"response": []
+										},
+										{
+											"name": "read.php",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "urlencoded",
+													"urlencoded": []
+												},
+												"url": {
+													"raw": "{{url}}/dist/api/nhan_vien/read.php",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"dist",
+														"api",
+														"nhan_vien",
+														"read.php"
+													],
+													"query": [
+														{
+															"key": null,
+															"value": null,
+															"description": "xem tất các danh sách có trong bảng",
+															"disabled": true
+														}
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "show.php",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{url}}/dist/api/nhan_vien/show.php?id=1",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"dist",
+														"api",
+														"nhan_vien",
+														"show.php"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "1",
+															"description": "int (mã nhân viên muốn xem thông tin đã xem )"
+														}
+													]
+												},
+												"description": "| **id=\"9\"** | **int trên url get(thông tin in trong sql của nhân viên có id)** |\n| --- | --- |"
+											},
+											"response": []
+										},
+										{
+											"name": "update.php",
+											"request": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "urlencoded",
+													"urlencoded": [
+														{
+															"key": "id",
+															"value": "",
+															"description": "int (nhân viên có mã id muốn sửa đổi thông tin)",
+															"type": "text"
+														},
+														{
+															"key": "fullname",
+															"value": "",
+															"description": "String(tên nhân viên muốn sửa thành)",
+															"type": "text"
+														},
+														{
+															"key": "email",
+															"value": "",
+															"description": "String(email nhân viên muốn sửa thành có kí tự @)",
+															"type": "text"
+														},
+														{
+															"key": "date_birth",
+															"value": "",
+															"description": "YYYY-MM-DD(ngáy sinh nhật nhân viên muốn sửa)",
+															"type": "text"
+														},
+														{
+															"key": "date_job_receive",
+															"value": "",
+															"description": "YYYY-MM-DD(ngáy vào công ty nhân viên muốn sửa)",
+															"type": "text"
+														},
+														{
+															"key": "status",
+															"value": "",
+															"description": "String (sửa tính trạng hiện tại cảu nhân viên)",
+															"type": "text"
+														},
+														{
+															"key": "role",
+															"value": "",
+															"description": "\tString (sửa chức vụ của nhân viên hiện tại {Admin, quản lý , nhân viên})",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{url}}/dist/api/nhan_vien/update.php",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"dist",
+														"api",
+														"nhan_vien",
+														"update.php"
+													]
+												},
+												"description": "| **id=\"8\"** | **int (nhân viên có mã id muốn sửa đổi thông tin)** |\n| --- | --- |\n| \"fullname\":\"Nguyễn văn vậy\" | String(tên nhân viên muốn sửa thành) |\n| \"email\":\"[ngva@gmial.com](mailto:ngva@gmial.com)\" | String(email nhân viên muốn sửa thành có kí tự @) |\n| \"date_birth\":\"2002-12-12\" | YYYY-MM-DD(ngáy sinh nhật nhân viên muốn sửa) |\n| \"date_job_receive\":\"2022-12-11\" | YYYY-MM-DD(ngáy vào công ty nhân viên muốn sửa) |\n| \"status\":\"Đã Nghỉ\" | String (sửa tính trạng hiện tại cảu nhân viên) |\n| \"role\":\"Nhân Viên\" | String (sửa chức vụ của nhân viên hiện tại {Admin, quản lý , nhân viên}) |"
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "phong",
+									"item": [
+										{
+											"name": "create.php",
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"id\":\"2\",\r\n    \"name_room\":\"thực tập sinh\",\r\n    \"id_company\":\"25\",\r\n    \"level\":\"1\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{url}}/dist/api/phong/create.php",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"dist",
+														"api",
+														"phong",
+														"create.php"
+													]
+												},
+												"description": "| **id=\"4\"** | int (mã phòng ) |\n| --- | --- |\n| name_room=\"thực tập\" | String (tên của phòng ) |\n| id_company=\"2\" | int (đươc liên kết với id của company) |\n| level | int =1 (để xác định để đổi chức vụ sau này) |"
+											},
+											"response": []
+										},
+										{
+											"name": "delete.php",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"id\":\"33\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{url}}/dist/api/phong/delete.php",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"dist",
+														"api",
+														"phong",
+														"delete.php"
+													]
+												},
+												"description": "| **id:\"33\"** | int (mã phòng muốn xóa) |\n| --- | --- |"
+											},
+											"response": []
+										},
+										{
+											"name": "read.php",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{url}}/dist/api/phong/read.php",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"dist",
+														"api",
+														"phong",
+														"read.php"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "show.php",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{url}}/dist/api/phong/show.php?id=1",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"dist",
+														"api",
+														"phong",
+														"show.php"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "1",
+															"description": "int (mã phòng muốn xem)"
+														}
+													]
+												},
+												"description": "StartFragment\n\n| **id=\"9\"** | **int trên url get(thông tin in trong sql của phòng có id)** |\n| --- | --- |\n\nEndFragment"
+											},
+											"response": []
+										},
+										{
+											"name": "update.php",
+											"request": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"id\":\"2\",\r\n    \"name_room\":\"phòng thực tập it\",\r\n    \"id_company\":\"24\",\r\n    \"level\":\"1\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{url}}/dist/api/phong/update.php",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"dist",
+														"api",
+														"phong",
+														"update.php"
+													]
+												},
+												"description": "| \"id\":\"2\" | **int (mã phòng muốn thay đổi thông tin )** |\n| --- | --- |\n| \"name_room\":\"phòng thực tập it\", | String (tên phòng muốn thay đổi ) |\n| \"id_company\":\"24\", | int (mã ban muồn tháy dổi ) |\n| \"level\":\"1\" | int (cấp hiệp tại) |\n\nStartFragment\n\nlevel sẽ đi từ cấp (0-2) 0: ban ,1: phòng,2 tổ nhưng hiện tai chưa cập nhật\n\nEndFragment"
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Cam_cong",
+									"item": [
+										{
+											"name": "create.php",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{   \r\n    \"date\":\"2023-02-18\",\r\n    \"time_now\":\"08:00\",\r\n    \"time_out\":\"17:00\",\r\n    \"role\":\"đi đúng h\",\r\n    \"id_belong\":\"13\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{url}}/dist/api/Cam_cong/create.php",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"dist",
+														"api",
+														"Cam_cong",
+														"create.php"
+													]
+												},
+												"description": "| date:\"2023-02 18\" | date YYYY-MM-DD(thơi gian hôm chấm công) |\n| --- | --- |\n| time_now:\"08:00\" | Time HH:ii (giờ và phút lúc đến của nhân viên) |\n| time_out:\"17:00\" | Time HH:ii (giờ phút lúc về của nhân viên) |\n| \"role\":\"đi đúng giờ\" | String (Nội dung đến đúng giớ , muộn ,nghỉ ) |\n| id_belong:\"13\" | (int liên kết vói các bảng belong để phân ra nhân viên và phong ) |"
+											},
+											"response": []
+										},
+										{
+											"name": "delete.php",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"id_lich\":\"13\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{url}}//dist/api/Cam_cong/delete.php",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"",
+														"dist",
+														"api",
+														"Cam_cong",
+														"delete.php"
+													]
+												},
+												"description": "| **id=39** | **int (đươc lưu trong bảng timekeeping muốn xóa)** |\n| --- | --- |\n|  |  |"
+											},
+											"response": []
+										},
+										{
+											"name": "read.php",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{url}}/dist/api/Cam_cong/read.php",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"dist",
+														"api",
+														"Cam_cong",
+														"read.php"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "show.php",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{url}}/dist/api/Cam_cong/show.php?id=3",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"dist",
+														"api",
+														"Cam_cong",
+														"show.php"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "3"
+														}
+													]
+												},
+												"description": "StartFragment\n\n| **id=\"9\"** | **int trên url get(thông tin in trong sql của timekeeping có id)** |\n| --- | --- |\n\nEndFragment"
+											},
+											"response": []
+										},
+										{
+											"name": "update.php",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"id\":11,\r\n    \"date\":\"2023-02-18\",\r\n    \"time_now\":\"08:00\",\r\n    \"time_out\":\"17:00\",\r\n    \"role\":\"đi đúng h\",\r\n    \"id_belong\":\"13\"\r\n\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{url}}/dist/api/Cam_cong/update.php",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"dist",
+														"api",
+														"Cam_cong",
+														"update.php"
+													]
+												},
+												"description": "| id:\"11\" | int (mã của cấm công của muốn sửa) |\n| --- | --- |\n| date:\"2023-02 18\" | date YYYY-MM-DD(thơi gian hôm chấm công muốn sửa) |\n| time_now:\"08:00\" | Time HH:ii (giờ và phút lúc đến của nhân viên muốn sửa) |\n| time_out:\"17:00\" | Time HH:ii (giờ phút lúc về của nhân viên muốn sửa) |\n| \"role\":\"đi đúng giờ\" | String (Nội dung đến đúng giớ , muộn ,nghỉ muốn sửa) |\n| id_belong:\"13\" | (int liên kết vói các bảng belong để phân ra nhân viên và phong muốn sửa) |\n\nid_belong: được liên kết vời bảng belong bảng bay được kêt hợp với bảng user nhân viên và room các phòng"
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "them",
+									"item": [
+										{
+											"name": "nhan_vien.php",
+											"request": {
+												"method": "GET",
+												"header": []
+											},
+											"response": []
+										},
+										{
+											"name": "more_launch.php",
+											"request": {
+												"method": "GET",
+												"header": []
+											},
+											"response": []
+										},
+										{
+											"name": "them_Camcong.php",
+											"request": {
+												"method": "GET",
+												"header": []
+											},
+											"response": []
+										},
+										{
+											"name": "them_phong",
+											"request": {
+												"method": "GET",
+												"header": []
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "thuoc",
+									"item": [
+										{
+											"name": "create.php",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{   \r\n    \"id_staff\":\"3\",\r\n    \"id_room\":\"8\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{url}}/dist/api/thuoc/create.php",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"dist",
+														"api",
+														"thuoc",
+														"create.php"
+													]
+												},
+												"description": "| \"id_staff\":\"1\" | **int (được liên kết với bảng user của nhân viên)** |\n| --- | --- |\n| \"id_room\":\"12\" | int **(được liên kết với bảng room của phong)** |"
+											},
+											"response": []
+										},
+										{
+											"name": "delete.php",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"id_lich\":\"13\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{url}}//dist/api/Cam_cong/delete.php",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"",
+														"dist",
+														"api",
+														"Cam_cong",
+														"delete.php"
+													]
+												},
+												"description": "StartFragment\n\n| **id=39** | **int (đươc lưu trong bảng timekeeping muốn xóa)** |\n| --- | --- |\n\nEndFragment"
+											},
+											"response": []
+										},
+										{
+											"name": "read.php",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{url}}/dist/api/Cam_cong/read.php",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"dist",
+														"api",
+														"Cam_cong",
+														"read.php"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "show.php",
+											"request": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{url}}/dist/api/Cam_cong/show.php?id=3",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"dist",
+														"api",
+														"Cam_cong",
+														"show.php"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "3"
+														}
+													]
+												},
+												"description": "StartFragment\n\n| **id=\"9\"** | **int trên url get(thông tin in trong sql của belong có id** |\n| --- | --- |\n\nEndFragment"
+											},
+											"response": []
+										},
+										{
+											"name": "update.php",
+											"event": [
+												{
+													"listen": "prerequest",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"id\":\"28\",\r\n    \"id_staff\":\"7\",\r\n    \"id_room\":\"8\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{url}}/dist/api/thuoc/update.php",
+													"host": [
+														"{{url}}"
+													],
+													"path": [
+														"dist",
+														"api",
+														"thuoc",
+														"update.php"
+													]
+												},
+												"description": "StartFragment\n\n| id=\"28\" | int (mã id muốn thay đổi trong bảng belong) |\n| --- | --- |\n| \"id_staff\":\"7\" | **int (được liên kết với bảng user của nhân viên)** |\n| \"id_room\":\"8\" | int **(được liên kết với bảng room của phong)** |\n\nEndFragment"
+											},
+											"response": []
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "assets",
+							"item": []
+						},
+						{
+							"name": "config",
+							"item": [
+								{
+									"name": "db.php",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/dist/config/db.php.php",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"dist",
+												"config",
+												"db.php.php"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "function.php",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/dist/config/function.php",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"dist",
+												"config",
+												"function.php"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "sql.php",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/dist/config/sql.php",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"dist",
+												"config",
+												"sql.php"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "model",
+							"item": [
+								{
+									"name": "ban.php",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/dist/model/ban.php",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"dist",
+												"model",
+												"ban.php"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "lich.php",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/dist/model/lich.php",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"dist",
+												"model",
+												"lich.php"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "nhanvien.php",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/dist/model/nhanvien.php",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"dist",
+												"model",
+												"nhanvien.php"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "thuoc.php",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/dist/model/thuoc.php",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"dist",
+												"model",
+												"thuoc.php"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "phong.php",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/dist/model/phong.php",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"dist",
+												"model",
+												"phong.php"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "src",
+							"item": [
+								{
+									"name": "list_phong.php",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/dist/src/list_phong.php",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"dist",
+												"src",
+												"list_phong.php"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "company_launch.php",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/dist/src/company_launch.php",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"dist",
+												"src",
+												"company_launch.php"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": ".htaccess",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/dist",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dist"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "account.php",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/dist/account.php?mvn=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dist",
+										"account.php"
+									],
+									"query": [
+										{
+											"key": "mvn",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "date.php",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/dist/date.php",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dist",
+										"date.php"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Indemnify.php",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/dist/Indemnify.php?id=2",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dist",
+										"Indemnify.php"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "index.php",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/dist/index.php",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dist",
+										"index.php"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "company_launch.php",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/dist/company_launch.php?mb=3&mp=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dist",
+										"company_launch.php"
+									],
+									"query": [
+										{
+											"key": "mb",
+											"value": "3"
+										},
+										{
+											"key": "mp",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "staff.php",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/dist/staff.php",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dist",
+										"staff.php"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "more_launch.php",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/dist/more_launch.php",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dist",
+										"more_launch.php"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "more_staff.php",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/dist/more_staff.php",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dist",
+										"more_staff.php"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "more_room.php",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/dist/more_room.php",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dist",
+										"more_room.php"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "themChamcong.php",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/dist/themChamcong.php?mb=1&mp=32",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"dist",
+										"themChamcong.php"
+									],
+									"query": [
+										{
+											"key": "mb",
+											"value": "1"
+										},
+										{
+											"key": "mp",
+											"value": "32"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "body_js.php",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/body_js.php",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"body_js.php"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "head.php",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/head.php",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"head.php"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
