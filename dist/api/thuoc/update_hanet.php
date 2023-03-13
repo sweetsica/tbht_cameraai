@@ -1,9 +1,10 @@
 <?php
 
+
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://partner.hanet.ai/device/get-list-device-by-place',
+  CURLOPT_URL => 'https://partner.hanet.ai/person/getListByPlace',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
@@ -11,54 +12,52 @@ curl_setopt_array($curl, array(
   CURLOPT_FOLLOWLOCATION => true,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
-  CURLOPT_POSTFIELDS => 'token='.$_COOKIE['accesstoken'].'&placeID='.$_GET['mb'].'',
+  CURLOPT_POSTFIELDS => 'token='.$_COOKIE['accesstoken'].'&placeID=15835&type=-1',
   CURLOPT_HTTPHEADER => array(
     'Content-Type: application/x-www-form-urlencoded'
   ),
 ));
-$kq='';
+
 $response = curl_exec($curl);
-$data=json_decode($response,true);
+
 curl_close($curl);
+$data=json_decode($response,true);
 include_once '../../config/sql.php';
 include_once '../../config/function.php';
 foreach ($data['data'] as $item) {
-    $id = $item['deviceID'];
-    $name = $item['deviceName'];
+    $id_room = $item['placeID'];
+    var_dump($id_room);
+    $id_staff=$item['personID'];
+    $name = $item['name'];
+    //kiêm tra ban phòng 
+    $sql0='select * from`cam_ai`.`room`where `id_company`='.$id_room.'';
 
-    // Kiểm tra trùng lặp dữ liệu
-    $sql = "SELECT * FROM `room` WHERE `id` = '$id'";
-    $result = mysqli_query($conn, $sql);
-    if (mysqli_num_rows($result) > 0) {
-        // Nếu tồn tại, thực hiện câu lệnh cập nhật
-        $sql = "SELECT * FROM `room` WHERE `name_room` = '$name'";
-        $result1 = mysqli_query($conn, $sql);
-        
-        if (mysqli_num_rows($result1) > 0) {
-            $kq .= 'kết quả đã tồn tại ' . $id . '';
-        } else {
-            $sql = "UPDATE `company` SET `name_room` = '$name' WHERE `id` = '$id'";
-            if( mysqli_query($conn, $sql)){
-                $kq .= 'Đã sửa thành công ' . $id . '';
+   $query =mysqli_query($conn,$sql0);
+   // trả r kết quả tồn tại hay chưa 
+    if(mysqli_num_rows($query)>0){
+        while($row=mysqli_fetch_assoc($query)){
+            $sql1="select * from belong where `id_staff`='".$id_staff."'and `id_room`='".$row['id']."'";
+            // đã tồn tại kiên kết chưa
+            $query1=mysqli_query($conn,$sql1);
+            if(mysqli_num_rows($query1)>0){
+                $kq.=$id_staff."đã tồn tại với ".$row['id'];
             }
             else{
-                $kq .= 'Sửa đã có lỗi ' . $id . '';
-
+                // update vào bảng belong
+              $sql2="INSERT INTO `cam_ai`.`belong` (`id_staff`, `id_room`) VALUES ('".$id_staff."', '".$row['id']."');";  
+              if (mysqli_query($conn, $sql2)) {
+                $kq .= 'Đã sửa thành công ' . $id_staff . '';
+            } else {
+                $kq .= 'kết quả sửa có lỗi tại ' . $id_staff . '';
+            }
             }
 
         }
-    } 
-    else {
-        // Nếu không tồn tại, thực hiện câu lệnh thêm mới
-        $sql = "INSERT INTO `room` (`id`, `name_room`,`id_company`, `level`) VALUES ('$id', '$name',".$_GET['mb'].", 1)";
-
-        if (mysqli_query($conn, $sql)) {
-            $kq .= 'Đã thêm mới thành công ' . $id . '';
-        } else {
-            $kq .= 'kết quả thêm mới có lỗi tại ' . $id . '';
-        }
+    }
+    else{
+        echo "lỗi trên cơ sở dữ liệu hệ thống có có phòng ban này";
     }
 }
-echo $kq;
-header('Location: http://huma_new.test:8081/dist/company_launch.php?mb='.$_GET['mb'].'&id=""');
+
+header('Location: ../../more_launch.php');
 

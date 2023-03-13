@@ -1,15 +1,14 @@
 <?php
-// Tải trang web từ URL
-$url = $auth_url;
-$dom = new DOMDocument();
-$dom->loadHTMLFile($url);
+// Tạo đối tượng DateTime cho thời điểm đầu tiên
+$start_time = new DateTime('08:00:00');
 
-// Tìm phần tử chứa chữ "Đồng ý"
-$agreeLink = $dom->getElementById('auth-app-gdpr');
+// Tạo đối tượng DateTime cho thời điểm thứ hai
+$end_time = new DateTime('07:59:01');
 
-// Kiểm tra xem phần tử đã được tìm thấy chưa
-if ($agreeLink) {
-  // Kích hoạt sự kiện click trên phần tử "Đồng ý"
-  $agreeLink->click();
-}
+// Tính toán khoảng thời gian giữa hai thời điểm
+$time_diff = $start_time->diff($end_time);
+
+// In ra khoảng thời gian dưới định dạng H:i:s
+echo $time_diff->format('%H:%i:%s');
+
 ?>

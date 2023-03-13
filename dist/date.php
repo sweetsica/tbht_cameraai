@@ -199,10 +199,7 @@ include "config/function.php";?>
                                                     echo '</td>';
                                                 }
                                             }
-                                            
-                                                echo'<td class="text-right">
-                                                    <a href="" class="text-50"><i class="material-icons">more_vert</i></a>  
-                                                </td>
+                                                echo'
                                             </tr>';
                                         }
                                     ?>
