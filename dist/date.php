@@ -33,7 +33,14 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
                 </ol>
 
             </div>
-
+            <div>
+                <table border="1" class="bang_note">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
 
         </div>
 
@@ -145,7 +152,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
                                 <tbody class="list" id="contacts">
                                     <?php
                                     $sql=mysqli_query($conn,
-                                    "SELECT l.date,l.time_now,l.time_out,l.id_belong,n.fullname,p.name_room,l.role FROM timekeeping AS l
+                                    "SELECT DISTINCT n.fullname ,n.id FROM timekeeping AS l
                                     left JOIN belong AS t ON t.id=l.id_belong
                                     LEFT JOIN room AS p ON p.id=t.id_room
                                     LEFT JOIN user AS n ON n.id=t.id_staff");
@@ -179,28 +186,42 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
                                             
                                         </td>
                                         <?php
-
                                     for($i=1;$i<$Month;$i++){ 
                                         $date="$dateYear-$dateMonth-".$i."";
-                                            $datedaysql=date('Y-m-d',strtotime($date));
-                                            if($datedaysql==$hien['date']){
-                                                // $datevn=date("d-m-Y",strtotime($date.'+'.$i.' days'));
-                                                
+                                        $datedaysql=date('Y-m-d',strtotime($date));
+                                        
+                                        $sql_string="SELECT l.role FROM timekeeping AS l
+                                        left JOIN belong AS t ON t.id=l.id_belong
+                                        LEFT JOIN room AS p ON p.id=t.id_room
+                                        LEFT JOIN user AS n ON n.id=t.id_staff
+                                        where n.id='".$hien['id']."' AND l.date='".$datedaysql."'";
+                                        $sql1=mysqli_query($conn,$sql_string);
+                                         if(mysqli_num_rows($sql1)>0){
+                                            while($hien2=mysqli_fetch_assoc($sql1)){
                                                 echo'
                                                 <td>
                                                 <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                                <small><strong class="js-lists-values-name text-black-100">'.$hien['role'].'</strong></small>
+                                                <small><strong class="js-lists-values-name text-black-100">'.$hien2['role'].'</strong></small>
 
                                                 </a>
                                                 
                                                 </td>';
-                                                
-                                            }                                             
-                                            else{
-                                                echo'<td>';                                        
-                                                    echo '</td>';
-                                                }
+
                                             }
+                                             
+                                            
+                                         }                                             
+                                        else{
+                                                
+                                                if($datedaysql<$dateactually){
+                                                    echo'<td style="background-color: orangered;">'; 
+                                                }
+                                                else{
+                                                    echo'<td>';
+                                                }                         
+                                                echo '</td>';
+                                            }
+                                        }
                                                 echo'
                                             </tr>';
                                         }
