@@ -1,4 +1,7 @@
 <?php include "view/head.php";?>
+<link type="text.css"
+      href="assets/css/css.css"
+      rel="stylesheet">
 <?php include "config/sql.php";
 include "config/function.php";
 date_default_timezone_set('Asia/Ho_Chi_Minh');
@@ -33,17 +36,35 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
                 </ol>
 
             </div>
-            <div>
-                <table border="1" class="bang_note">
+           
+
+        </div>
+        <div>
+                <table border="0" class="bang_note" style="border: 0;margin-right: 102px;">
+                    <tr>
+                        <td>Các chú ý: </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: orangered;border-radius: 44px;">
+
+                        </td>
+                        <td> Nhân viên nghỉ không đi làm </td>
+                    </tr>
+                    <tr>
+                        <td style="background-color:firebrick ;border-radius: 44px;"></td>
+                        <td>Nhân viên đi muộn</td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: green ;border-radius: 44px;"></td>
+                        <td>Nhân viên đi đúng giờ</td>
+                    </tr>
                     <tr>
                         <td></td>
                         <td></td>
                     </tr>
                 </table>
             </div>
-
-        </div>
-
 
     </div>
 </div>
@@ -95,16 +116,10 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
                                 <thead>
                                     <tr>
 
-                                        <th style="width: 18px;" class="pr-0 border-right-0">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input js-toggle-check-all" data-target="#contacts" id="customCheckAll_contacts" data-domfactory-upgraded="toggle-check-all">
-                                                <label class="custom-control-label" for="customCheckAll_contacts"><span class="text-hide">Toggle all</span></label>
-                                            </div>
-                                        </th>
+
 
                                         <th class="border-left-0">
-                                            <a href="javascript:void(0)" class="sort" data-sort="js-lists-values-name">Name</a>
-                                        </th>
+                                            <a href="javascript:void(0)" class="sort asc" data-sort="js-lists-values-employer-name">Name</a>                                        </th>
                                         <div style=font-size:10px;">
                                         <?php
                                         
@@ -159,32 +174,29 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
                                     while($hien=mysqli_fetch_assoc($sql)){
                                         $logo=substr("".$hien['fullname']."",0,1);
                                     echo'<tr>
+                                                    <td>
 
-                                        <td class="pr-0 border-right-0">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input js-check-selected-row" id="customCheck1_contacts_1" data-domfactory-upgraded="check-selected-row">
-                                                <label class="custom-control-label" for="customCheck1_contacts_1"><span class="text-hide">Check</span></label>
-                                            </div>
-                                        </td>
-
-                                        <td class="border-left-0">
-
-                                            <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
-                                                <div class="avatar avatar-32pt mr-8pt">
-
-                                                    <span class="avatar-title rounded-circle bg-white border text-100">'.$logo.'</span>
-
-                                                </div>
-                                                <div class="media-body ml-4pt">
-                                                    
-                                                        <p class="mb-0"><strong class="js-lists-values-name">'.$hien['fullname'].'</strong></p>
-                                                        ';
-                                                        ?>
-                                                    
-                                                </div>
+                                                        <div class="media flex-nowrap align-items-center" style="white-space: nowrap;">
+                                                            <div class="avatar avatar-32pt mr-8pt">
+                    
+                                                                <span class="avatar-title rounded-circle">'.$logo.'</span>
+                    
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <a href="time_one_people.php?id='.$hien['id'].'">
+                                                                <div class="d-flex flex-column">
+                                                                    <p class="mb-0"> <strong class="js-lists-values-employee-name color-name">'.$hien['fullname'].'</strong></p>
+                                                                   
+                                                                </div>
+                                                                </a>
+                                                          </div>
                                             </div>
                                             
-                                        </td>
+                                        </td>';
+                                                        ?>
+                                                    
+                                              
+                                        
                                         <?php
                                     for($i=1;$i<$Month;$i++){ 
                                         $date="$dateYear-$dateMonth-".$i."";
@@ -198,13 +210,12 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
                                         $sql1=mysqli_query($conn,$sql_string);
                                          if(mysqli_num_rows($sql1)>0){
                                             while($hien2=mysqli_fetch_assoc($sql1)){
+                                                $loai=substr("".$hien2['role']."",0,1);
+                                                $mau=($loai!="-")?"green":"firebrick";
                                                 echo'
                                                 <td>
-                                                <a class="d-flex flex-column border-1 rounded bg-light px-8pt py-4pt lh-1" href="">
-                                                <small><strong class="js-lists-values-name text-black-100">'.$hien2['role'].'</strong></small>
-
-                                                </a>
                                                 
+                                                <small ><strong class="js-lists-values-name text-black-100" ><font style="color:'.$mau.'">'.$hien2['role'].'</font></strong></small>
                                                 </td>';
 
                                             }
