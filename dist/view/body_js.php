@@ -185,7 +185,7 @@
         <div id="app-settings">
             <app-settings layout-active="app"
                           :layout-location="{
-      'compact': 'compact-staff.html',
+      
       'mini': 'mini-staff.html',
       'app': 'staff.html',
       'boxed': 'boxed-staff.html',
