@@ -8,4 +8,7 @@ RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.+)/view/?$ $1.php [L]
 
 # Set a custom 404 error page
-ErrorDocument 404 /view/error.php
+ErrorDocument 401 /view/errorp/401.php
+ErrorDocument 403 /view/errorp/403.php
+ErrorDocument 404 /view/errorp/404.php
+ErrorDocument 500 /view/errorp/500.php
