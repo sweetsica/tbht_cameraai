@@ -1,1 +1,11 @@
-DirectoryLogin login.php
+RewriteEngine on
+
+# Redirect all requests to http://huma_new.test:8081/
+RewriteRule ^/?(.*) http://huma_new.test:8081/$1 [R=301,L]
+
+# If a request for a .php file exists, serve it without the extension
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)/view/?$ $1.php [L]
+
+# Set a custom 404 error page
+ErrorDocument 404 /view/error.php
