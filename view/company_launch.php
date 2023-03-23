@@ -130,7 +130,9 @@
                 <tbody class="list"
                        id="staff">
                     <?php
-                  $company_launch->list_staff(); ?>
+                  $company_launch->list_staff();
+
+                            ?>
                 </tbody>
             </table>
             
