@@ -2,7 +2,12 @@
 include_once "head.php";
 include_once "../config/sql.php";
 include_once "../config/function.php";
+date_default_timezone_set('Asia/Ho_Chi_Minh');
+
 ?>
+        <link type="text/css"
+              href="assets/vendor/daterangepicker.css"
+              rel="stylesheet">
 <link rel="stylesheet" href="assets/css/css.css">
 
 
@@ -59,6 +64,7 @@ include_once "../config/function.php";
 
     <div class="page-separator">
         <div class="page-separator__text">Nhân viên đi cam trong ngày</div>
+
     </div>
 
     <div class="card mb-0">
@@ -69,7 +75,7 @@ include_once "../config/function.php";
              data-lists-values='["js-lists-values-employee-name", "js-lists-values-employer-name", "js-lists-values-projects", "js-lists-values-activity", "js-lists-values-earnings"]'>
 
             <div class="card-header">
-                <form class="form-inline">
+                <form class="form-inline" action="#">
                     <label class="mr-sm-2 form-label"
                            for="inlineFormFilterBy">Tìm kiếm:</label>
                     <input type="text"
@@ -79,10 +85,26 @@ include_once "../config/function.php";
 
                     <label class="sr-only"
                            for="inlineFormRole">Role</label>
-                    <!-- <div class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
-<input type="checkbox" class="custom-control-input" id="inlineFormPurchase">
-<label class="custom-control-label" for="inlineFormPurchase">Made a Purchase?</label>
-</div> -->
+                <label class="form-label mb-0" for="active">Chọn ngày: </label>
+                <div class="custom-control custom-checkbox-toggle ml-8pt">
+                    <input id="dateRangePickerSample01"
+                    type="text"
+                    class="form-control"
+                    placeholder="Date example"
+                    data-toggle="daterangepicker"
+                    data-daterangepicker-drops="up"
+                    data-daterangepicker-start-date="<?php $date='';
+                            if(isset($_GET['date'])){
+                                $date2= $_GET['date'];
+                            }
+                            else{
+                                $date2=date('Y/m/d');
+                            }
+                            echo $date2;?>"
+                    data-daterangepicker-single-date-picker="true"
+                    name="date" style="margin-top: -11%;">
+                </div>
+                <input type="submit" name="luu" class="btn btn-accent btn-rounded" style="margin: auto;margin-left: 10%;" value="Chọn">
                 </form>
             </div>
 
@@ -152,3 +174,6 @@ include_once "../config/function.php";
 </div>
 <?php 
 include_once 'body_js.php';?>
+        <script src="assets/vendor/moment.min.js"></script>
+        <script src="assets/vendor/daterangepicker.js"></script>
+        <script src="assets/js/daterangepicker.js"></script>

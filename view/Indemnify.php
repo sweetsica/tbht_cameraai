@@ -15,7 +15,7 @@ include '../config/function.php';?>
                                 <h2 class="mb-0">Account</h2>
 
                                 <ol class="breadcrumb p-0 m-0">
-                                    <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="../index.html">Trang chủ</li>
 
                                     <li class="breadcrumb-item">
 

@@ -1,7 +1,12 @@
 
 <?php
-date_default_timezone_set('Asia/Ho_Chi_Minh');
-$date=date('Y-m-d');
+    $date='';
+    if(isset($_GET['date'])){
+        $date= $_GET['date'];
+    }
+    else{
+        $date=date('Y-m-d');
+    }
 $curl = curl_init();
 curl_setopt_array($curl, array(
   CURLOPT_URL => 'https://partner.hanet.ai/person/getCheckinByPlaceIdInDay',

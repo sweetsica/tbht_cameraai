@@ -26,7 +26,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
                 <h2 class="mb-0">Chấm Công Trong <?php echo $dateMonthYear;?></h2>
 
                 <ol class="breadcrumb p-0 m-0">
-                    <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../index.html">Trang chủ</li>
 
                     <li class="breadcrumb-item active">
 

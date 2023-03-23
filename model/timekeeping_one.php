@@ -4,6 +4,13 @@ class data_day_one{
                         // include "config/function.php";
             
                         public function bang(){
+                            $date='';
+                            if(isset($_GET['date'])){
+                                $date= $_GET['date'];
+                            }
+                            else{
+                                $date=date('Y-m-d');
+                            }
                             $x=include '../api/person/getCheckinByPlaceIdInDay.php';
                             if($x['data']==null){
                                 echo "<tr>
@@ -113,6 +120,16 @@ class data_day_one{
                         }}
                         }
                         public function diem(){
+                            $date='';
+                            if(isset($_GET['date'])){
+                                $date= $_GET['date'];
+                                $date = str_replace("/", "-", $date);
+
+                            }
+                            else{
+                                $date=date('Y-m-d');
+                            }
+                            echo $date;
                         $x=include '../api/person/getCheckinByPlaceIdInDay.php';
                         $d=0;
                         $v=0;
