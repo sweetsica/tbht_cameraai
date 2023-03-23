@@ -60,5 +60,5 @@ foreach ($data['data'] as $item) {
     }
 }
 echo $kq;
-header('Location: http://huma_new.test:8081/view/company_launch.php?mb='.$_GET['mb'].'&id=""');
+header('Location: http://camai.doppelherz.vn/view/company_launch.php?mb='.$_GET['mb'].'&id=""');
 

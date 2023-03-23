@@ -11,7 +11,7 @@ if(!isset($_COOKIE['code'])){
 }
 elseif(!isset($_COOKIE['accesstoken'])){
     echo "<script>sessionStorage.setItem('login', '1');</script>";
-      include 'http://huma_new.test:8081/api/token.php';
+      include 'http://camai.doppelherz.vn/api/token.php';
 }
 else{
 

@@ -5,7 +5,7 @@ $client_secret = 'c9ad30718c388f1a809e05800f799954';
 $username = "baonn@doppelherz.vn";
 $password = "admin@2023";
 // Thiết lập URI chuyển hướng sau khi người dùng đã cấp quyền truy cập
-$redirect_uri = 'http://huma_new.test:8081/';
+$redirect_uri = 'http://camai.doppelherz.vn/';
 
 // Thiết lập điểm cuối máy chủ OAuth để yêu cầu mã truy cập
 $token_endpoint = 'https://oauth.hanet.com/oauth2/token';

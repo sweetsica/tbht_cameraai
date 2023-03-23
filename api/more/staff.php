@@ -115,11 +115,11 @@ if ($conn->query($sql) === TRUE) {
       echo "Selected number: $number\n";
   }
   echo "Lưu thành công tên";
-  header("http://huma_new.test:8081/view/more_staff.php");
+  header("http://camai.doppelherz.vn/view/more_staff.php");
 
 } else {
 echo "Error: " . $sql . "<br>" . $conn->error; 
 }
-header("http://huma_new.test:8081/view/more_staff.php");
+header("http://camai.doppelherz.vn/view/more_staff.php");
 $conn->close();
 ?>

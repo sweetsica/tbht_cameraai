@@ -4,7 +4,7 @@
 $username = 'baonn@doppelherz.vn';
 $password = 'admin@2023';
 $client_id = '279c0b6a827ddccfce4ae52cf80b5e1b';
-$redirect_uri = 'http://huma_new.test:8081/';
+$redirect_uri = 'http://camai.doppelherz.vn/';
 
 // Redirect the user to the OAuth2 authorization endpoint
 $login_url = "https://oauth.hanet.com/oauth2/authorize?response_type=code&client_id=$client_id&redirect_uri=$redirect_uri&scope=full";

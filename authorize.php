@@ -5,7 +5,7 @@ $client_id = '279c0b6a827ddccfce4ae52cf80b5e1b';
 $client_secret = 'c9ad30718c388f1a809e05800f799954';
 
 // Set up the URI to change after the user has granted access
-$redirect_uri = 'http://huma_new.test:8081/';
+$redirect_uri = 'http://camai.doppelherz.vn/';
 
 // Set the end of the OAUTH2 server to request the access code
 $token_endpoint = 'https://oauth.hanet.com/oauth2/token';
