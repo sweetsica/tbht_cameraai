@@ -34,7 +34,7 @@ VALUES (NULL,'".$dateday."', '".$Time_den."', '".$Time_out."', '".$n."', '".$_GE
 
 if ($conn->query($sql) === TRUE) {
     echo "lưu thành công";
-    header("http://camai.doppelherz.vn/view/more_room.php");
+    header("http://dothominhhong.com/view/more_room.php");
 
 } else {
   echo "Error: " . $sql . "<br>" .$conn->error; 
@@ -50,7 +50,7 @@ $data = array(
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://camai.doppelherz.vn/view/api/more/more_room.php",
+  CURLOPT_URL => "http://dothominhhong.com/view/api/more/more_room.php",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,

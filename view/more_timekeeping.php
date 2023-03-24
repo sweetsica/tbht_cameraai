@@ -11,14 +11,14 @@ include '../config/function.php' ;?>
         <div class="flex d-flex flex-column flex-sm-row align-items-center mb-24pt mb-md-0">
 
             <div class="mb-24pt mb-sm-0 mr-sm-24pt">
-                <h2 class="mb-0">Chấm công</h2>
+                <h2 class="mb-0">Thêm Chấm Công </h2>
 
                 <ol class="breadcrumb p-0 m-0">
-                    <li class="breadcrumb-item"><a href="../index.html">Trang chủ</li>
+                    <li class="breadcrumb-item"><a href="index.html">Trang chủ </li>
 
                     <li class="breadcrumb-item active">
 
-                        Chấm công
+                         >Chấm công
 
                     </li>
 
@@ -29,6 +29,13 @@ include '../config/function.php' ;?>
 
         </div>
 
+        <div class="row"
+             role="tablist">
+            <div class="col-auto border-left">
+                <a href="more_staff.php"
+                   class="btn btn-accent">Thêm Nhân Viên</a>
+            </div>
+        </div>
 
     </div>
 </div>
@@ -46,16 +53,14 @@ include '../config/function.php' ;?>
             <?php
                     echo '
                     <li class="sidebar-menu-item"
-                    <a class="sidebar-menu-button" href="projects.html">
-                    <span class="sidebar-menu-text co_chu">Tất cả</span>
-                    </a>
+
                     ';
                     $sql2=mysqli_query($conn,"SELECT * FROM company ORDER BY `level`");
                     if(mysqli_num_rows($sql2)>0){
                     while($hien=mysqli_fetch_assoc($sql2)){
                         $k='';
                         echo '<li class="sidebar-menu-item" style="padding-top: 0px;">
-                        <a class="sidebar-menu-button" href="company_launch.php?mb='.$hien['id'].'&id=""" >';
+                        <a class="sidebar-menu-button" href="?mb='.$hien['id'].'&id=""" >';
                                 if($hien["name_company"]==''){
                                     $k="vui long thêm tên";
                                 }
@@ -68,7 +73,6 @@ include '../config/function.php' ;?>
                                 $sql3=mysqli_query($conn," SELECT p.name_room, p.id From room as p left join company as b on b.id=p.id_company where b.id=".$hien['id']."");
                                 echo" <ul class='card-body'style='padding-top: 0px;'>";
                                 while($hien1=mysqli_fetch_assoc($sql3)){
-                                    // if($hien['id']==$hien1['id_company'])
                                     echo "<li class='sidebar-menu-item'><a href='?mb=".$hien['id']."&id=".$hien1['id']."'>
                                     <span class='sidebar-menu-text'>&nbsp&nbsp&nbsp ".$hien1['name_room']."</span>
                                     </a></li>";
@@ -76,7 +80,8 @@ include '../config/function.php' ;?>
                                 }
                                 echo"</ul>";  
                     echo' </li>';
-            }}
+            }
+        }
             ?>
         </ul>
       </div>  
@@ -102,12 +107,7 @@ include '../config/function.php' ;?>
 
 
                     </div>
-
-                    <!-- <div class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
-<input type="checkbox" class="custom-control-input" id="inlineFormPurchase">
-<label class="custom-control-label" for="inlineFormPurchase">Made a Purchase?</label>
-</div> -->
-                </form>
+                     </form>
             </div>
 
             <table class="table mb-0 thead-border-top-0 table-nowrap">
@@ -145,12 +145,6 @@ include '../config/function.php' ;?>
                         </th>
 
                         <th style="width: 37px;">Vai trò</th>
-
-                        <!-- <th style="width: 120px;">
-                            <a href="javascript:void(0)"
-                               class="sort"
-                               data-sort="js-lists-values-activity">Activity</a>
-                        </th>-->
                         <th style="width: 51px;">
                             <a href="javascript:void(0)"
                                class="sort"
@@ -181,13 +175,8 @@ include '../config/function.php' ;?>
                         left join belong as t on user.id=t.id_staff 
                         left join room as p on t.id_room=p.id
                         left join company   as b on b.id=p.id_company
-                        where b.id=".$_GET['mb']." AND t.id_room=".$_GET['id']."");
+                        where b.id=".$_GET['mb']." AND t.id_room='".$_GET['id']."'");
                     }
-                        // $sql=mysqli_query($conn,"SELECT * From user 
-                        // left join belong as t on user.id=t.id 
-                        // left join room as p on t.mp=p.mp
-                        // left join company   as b on b.id=p.id_company
-                        // where b.id=".$_GET['mb']."");
                         while($hien1=mysqli_fetch_assoc($sql)){
                             $logo=substr("".$hien1['fullname']."",0,1);
                             echo'
@@ -207,7 +196,7 @@ include '../config/function.php' ;?>
 
                                             <div class="d-flex flex-column ">
                                                 <a href="indemnify.php?id='.$hien1['id_belong'].'">
-                                                '.$hien1['id_belong'].'
+                                               
                                                 <p class="mb-0"> <strong class="js-lists-values-employee-name color-name">'.$hien1['fullname'].'</strong></p>
                                                 <small class="js-lists-values-employee-email text-50">'.$hien1['email'].'</small>
                                                 </a>
@@ -260,7 +249,6 @@ include '../config/function.php' ;?>
         </div>
     </div>
     </div>
-</div>
 
 
 <?php include 'body_js.php';?>

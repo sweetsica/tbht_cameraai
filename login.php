@@ -5,7 +5,7 @@ $client_secret = 'c9ad30718c388f1a809e05800f799954';
 $username = "baonn@doppelherz.vn";
 $password = "admin@2023";
 // Set up the URI to change after the user has granted access
-$redirect_uri = 'http://camai.doppelherz.vn/view/code/';
+$redirect_uri = 'http://dothominhhong.com/view/code/';
 
 // Set the end of the OAUTH2 server to request the access code
 $token_endpoint = 'https://oauth.hanet.com/oauth2/token';
@@ -57,112 +57,8 @@ if (isset($_GET['code'])) {
 // var_dump($auth_url);
     // Shift user direction to authentication page
     header('Location: ' . $auth_url);
-// Khởi tạo thư viện cURL
-// include_once('auto.php');
-
-// Thiết lập các tùy chọn của cURL
-
-
-    // sleep(3);
-    //         $curl1 = curl_init();
-
-    //     // Thiết lập các tùy chọn của cURL
-    //     curl_setopt_array($curl1, array(
-    //     CURLOPT_URL => 'https://oauth.hanet.com/oauth2/authorize?response_type=code&client_id=279c0b6a827ddccfce4ae52cf80b5e1b&redirect_uri=http%3A%2F%2Fhuma_new.test%3A8081%2Fdist%2F&state=',
-    //     CURLOPT_RETURNTRANSFER => true,
-    //     CURLOPT_ENCODING => '',
-    //     CURLOPT_MAXREDIRS => 10,
-    //     CURLOPT_TIMEOUT => 0,
-    //     CURLOPT_FOLLOWLOCATION => true,
-    //     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    //     CURLOPT_CUSTOMREQUEST => 'GET',
-    //     ));
-
-    //     // Gửi yêu cầu HTTP để tải nội dung của trang đăng nhập
-    //     $response1 = curl_exec($curl1);
-    //     if ($response1) {
-    //         // Tạo đối tượng DOM và tải nội dung đã tải về từ trang đăng nhập
-    //         $dom = new DOMDocument();
-    //         libxml_use_internal_errors(true);
-    //         var_dump($dom);
-    //     echo"
-    //     <script>
-    //     setTimeout(function() {
-    //         document.querySelector('.btn.btn-primary.authorize-app.btn-block').click();
-    //     }, 100); // sau 10 giây
-        
-    //     </script>
-    //     ";
-    // header('Location:'.'https://oauth.hanet.com/oauth2/authorize?response_type=code&client_id=279c0b6a827ddccfce4ae52cf80b5e1b&redirect_uri=http%3A%2F%2Fhuma_new.test%3A8081%2Fdist%2F&state=');
-
-    // var_dump($response);
-
-// else {
-//     // Handle errors when failed to load HTML content from the login page
-//     // ...
-//     echo "haizz";
-// }
-
-// Close cURL session
 curl_close($curl);
 
-    // include_once($auth_url);
-    // var_dump($auth_url);
-//
-//
-//
-//
-//
-// Lấy thông tin từ URL
-//
-///
-//
-///
     exit();
 }
-//
-//
-//
-//
-// if (isset($_GET['code'])) {
-//     // Người dùng đã cấp quyền truy cập cho ứng dụng, vì vậy trao đổi mã xác thực để nhận mã truy cập
-//     $authorization_code = $_GET['code'];
 
-//     // Tạo yêu cầu cURL đến điểm cuối mã truy cập
-//     $curl = curl_init();
-//     curl_setopt_array($curl, array(
-//         CURLOPT_URL => $token_endpoint,
-//         CURLOPT_RETURNTRANSFER => true,
-//         CURLOPT_ENCODING => '',
-//         CURLOPT_MAXREDIRS => 10,
-//         CURLOPT_TIMEOUT => 0,
-//         CURLOPT_FOLLOWLOCATION => true,
-//         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-//         CURLOPT_CUSTOMREQUEST => 'POST',
-//         CURLOPT_POSTFIELDS => array(
-//             'grant_type' => 'authorization_code',
-//             'client_id' => $client_id,
-//             'client_secret' => $client_secret,
-//             'redirect_uri' => $redirect_uri,
-//             'code' => $authorization_code
-//         ),
-//     ));
-//     $response = curl_exec($curl);
-//     curl_close($curl);
-
-//     // Phân tích cú pháp JSON phản hồi và trích xuất mã truy cập
-//     $token_data = json_decode($response, true);
-//     $access_token = $token_data['access_token'];
-//     // TODO: Lưu mã truy cập để sử dụng cho các yêu cầu API sau này
-
-//     // Chuyển hướng người dùng đến trang thành công
-//     header('Location: index.php');
-//     exit();
-// } else {
-//     // Người dùng chưa cấp quyền truy cập cho ứng dụng, vì vậy bắt đầu luồng xác thực bằng cách chuyển hướng người dùng đến trang xác thực với các tham số truy vấn thích hợp
-//     $auth_url = $auth_endpoint . '?response_type=code&client_id=' . $client_id . '&redirect_uri=' . urlencode($redirect_uri) . '&scope=full';
-    
-//     // Chuyển hướng người dùng đến trang xác thực
-//     echo "<script>window.location.href = '$auth_url';</script>";
-//     exit();
-// }

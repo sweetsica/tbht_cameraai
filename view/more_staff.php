@@ -3,6 +3,9 @@ include  'head.php';
 include '../config/sql.php' ;
 include '../config/function.php' ;
 ?>
+       <link type="text/css"
+              href="assets/vendor/select2/select2.min.css"
+              rel="stylesheet">
 
 
 
@@ -168,4 +171,7 @@ include '../config/function.php' ;
 <?php 
 
 include 'body_js.php';?>
+        <!-- Select2 -->
+        <script src="assets/vendor/select2/select2.min.js"></script>
+        <script src="assets/js/select2.js"></script>
  

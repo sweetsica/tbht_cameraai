@@ -65,9 +65,7 @@ dir="ltr">
       href="assets/css/css.css"
       rel="stylesheet">
        <!-- Select2 -->
-       <!-- <link type="text/css"
-              href="assets/vendor/select2/select2.min.css"
-              rel="stylesheet"> -->
+
         <link type="text/css"
               href="assets/css/select2.css"
               rel="stylesheet">
@@ -123,14 +121,6 @@ dir="ltr">
 
     <!-- <button class="btn navbar-btn mr-16pt" data-toggle="modal" data-target="#apps">Apps <i class="material-icons">arrow_drop_down</i></button> -->
 
-    <form class="search-form navbar-search d-none d-md-flex mr-16pt"
-          action="index.html">
-        <button class="btn"
-                type="submit"><i class="material-icons">search</i></button>
-        <input type="text"
-               class="form-control"
-               placeholder="Tìm kiếm ...">
-    </form>
 
     <div class="flex"></div>
 
