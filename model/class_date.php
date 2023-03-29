@@ -14,8 +14,8 @@ class date{
         left JOIN belong AS t ON t.id=l.id_belong
         LEFT JOIN room AS p ON p.id=t.id_room
         LEFT JOIN user AS n ON n.id=t.id_staff");
-        while($hien=mysqli_fetch_assoc($sql)){
-            $logo=substr("".$hien['fullname']."",0,1);
+        while($display=mysqli_fetch_assoc($sql)){
+            $logo=substr("".$display['fullname']."",0,1);
         echo'<tr>
                         <td>
 
@@ -26,9 +26,9 @@ class date{
 
                                 </div>
                                 <div class="media-body">
-                                    <a href="time_one_people.php?id='.$hien['id'].'">
+                                    <a href="time_one_people.php?id='.$display['id'].'">
                                     <div class="d-flex flex-column">
-                                        <p class="mb-0"> <strong class="js-lists-values-employee-name color-name">'.$hien['fullname'].'</strong></p>
+                                        <p class="mb-0"> <strong class="js-lists-values-employee-name color-name">'.$display['fullname'].'</strong></p>
                                        
                                     </div>
                                     </a>
@@ -45,16 +45,16 @@ class date{
             left JOIN belong AS t ON t.id=l.id_belong
             LEFT JOIN room AS p ON p.id=t.id_room
             LEFT JOIN user AS n ON n.id=t.id_staff
-            where n.id='".$hien['id']."' AND l.date='".$datedaysql."'";
+            where n.id='".$display['id']."' AND l.date='".$datedaysql."'";
             $sql1=mysqli_query($this->conn,$sql_string);
              if(mysqli_num_rows($sql1)>0){
-                while($hien2=mysqli_fetch_assoc($sql1)){
-                    $loai=substr("".$hien2['role']."",0,1);
+                while($display2=mysqli_fetch_assoc($sql1)){
+                    $loai=substr("".$display2['role']."",0,1);
                     $mau=($loai!="-")?"green":"firebrick";
                     echo'
                     <td>
                     
-                    <small ><strong class="js-lists-values-name text-black-100" ><font style="color:'.$mau.'">'.$hien2['role'].'</font></strong></small>
+                    <small ><strong class="js-lists-values-name text-black-100" ><font style="color:'.$mau.'">'.$display2['role'].'</font></strong></small>
                     </td>';
 
                 }

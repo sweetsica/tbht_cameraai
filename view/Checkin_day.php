@@ -135,9 +135,9 @@
                         }
                         $so_dong=10;
                         $tong_dong=ceil(count($data)/$so_dong);
-                        $hien_tai=isset($_GET['page']) ? intval($_GET['page']):1;
-                        $hien_tai=max(1,min($hien_tai,$tong_dong));
-                        $bu_lai=($hien_tai-1)*$so_dong;
+                        $display_tai=isset($_GET['page']) ? intval($_GET['page']):1;
+                        $display_tai=max(1,min($display_tai,$tong_dong));
+                        $bu_lai=($display_tai-1)*$so_dong;
                         $dong_hientai= array_slice($data,$bu_lai,$so_dong);
                         foreach($dong_hientai as $data){
                             $logo=substr("".$data[1]."",0,1);
@@ -224,7 +224,7 @@
                        aria-label="Page">
                         <?php
                         for($i=1;$i<=$tong_dong;$i++){
-                            if($i==$hien_tai){
+                            if($i==$display_tai){
                                 echo " <span>$i</span>";
                             } 
                         }
@@ -234,11 +234,11 @@
                     <div class="dropdown-menu " >
                         <?php
                             for($i=1;$i<=$tong_dong;$i++){
-                                if($i==$hien_tai){
+                                if($i==$display_tai){
                                     echo "<strong>$i</strong> ";
                                 }
                                 
-                                if($i!=$hien_tai){
+                                if($i!=$display_tai){
                                     echo '<a href="?page='.$i.'"
                                     class="dropdown-item active">'.$i.'</a>
                                     ';

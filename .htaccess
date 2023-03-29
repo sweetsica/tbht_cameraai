@@ -1,7 +1,7 @@
 RewriteEngine on
 
-# Redirect all requests to http://dothominhhong.com/
-RewriteRule ^/?(.*) http://dothominhhong.com/$1 [R=301,L]
+# Redirect all requests to http://camai.doppelherz.vn/
+RewriteRule ^/?(.*) http://camai.doppelherz.vn/$1 [R=301,L]
 
 # If a request for a .php file exists, serve it without the extension
 RewriteCond %{REQUEST_FILENAME}.php -f

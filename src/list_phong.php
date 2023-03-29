@@ -15,11 +15,11 @@ $uri = $_SERVER['REQUEST_URI'];
             <td>Tên company</td>
         </tr>";
         $sql=mysqli_query($conn,company());
-        while($hien=mysqli_fetch_assoc($sql)){
-            echo"<tr><td><a href='?mb=".$hien['id']."&id='''  class='text-decoration-none 
- text-body-secondary'>".$hien['id']."</a></td>
-            <td><a href='?mb=".$hien['id']."&id=''' class='text-decoration-none 
- text-body-secondary'>".$hien['name_company']."</a></td>";
+        while($display=mysqli_fetch_assoc($sql)){
+            echo"<tr><td><a href='?mb=".$display['id']."&id='''  class='text-decoration-none 
+ text-body-secondary'>".$display['id']."</a></td>
+            <td><a href='?mb=".$display['id']."&id=''' class='text-decoration-none 
+ text-body-secondary'>".$display['name_company']."</a></td>";
             echo "</tr>";
         }
     }
@@ -35,15 +35,15 @@ $uri = $_SERVER['REQUEST_URI'];
             </tr>";
             
             $sql2=mysqli_query($conn,'SELECT company.name_company,room.name_room,room.mp from company left join room on company.mb=room.id_company where room.id_company='.$mb.'');
-            while($hien1=mysqli_fetch_assoc($sql2)){
+            while($display1=mysqli_fetch_assoc($sql2)){
                 echo"<tr>
-                <td><a href='?mb=".$mb."&id=".$hien1['id']."' class='text-decoration-none 
- text-body-secondary'>".$hien1['id']."</a>
+                <td><a href='?mb=".$mb."&id=".$display1['id']."' class='text-decoration-none 
+ text-body-secondary'>".$display1['id']."</a>
                 </td>
-                <td><a href='?mb=".$mb."&id=".$hien1['id']."' class='text-decoration-none 
- text-body-secondary'>".$hien1['name_room']."</a></td>
-                <td><a href='?mb=".$mb."&id=".$hien1['id']."' class='text-decoration-none 
- text-body-secondary'>".$hien1['name_company']."</a></td>";
+                <td><a href='?mb=".$mb."&id=".$display1['id']."' class='text-decoration-none 
+ text-body-secondary'>".$display1['name_room']."</a></td>
+                <td><a href='?mb=".$mb."&id=".$display1['id']."' class='text-decoration-none 
+ text-body-secondary'>".$display1['name_company']."</a></td>";
                 echo "</tr>";
                 
             }
@@ -66,8 +66,8 @@ $uri = $_SERVER['REQUEST_URI'];
             </tr>';
             $sql3 =mysqli_query($conn,belong().' where id_room='.$mp.'');
             if(mysqli_num_rows($sql3)>0){
-            while($hien2=mysqli_fetch_assoc($sql3)){
-                $sql3_use=mysqli_query($conn,user().' where id='.$hien2['id'].'');
+            while($display2=mysqli_fetch_assoc($sql3)){
+                $sql3_use=mysqli_query($conn,user().' where id='.$display2['id'].'');
                 
                     $i=1;
                     while($ten1=mysqli_fetch_assoc($sql3_use)){
@@ -90,15 +90,15 @@ $uri = $_SERVER['REQUEST_URI'];
                             <td><a href='../view/nhan_vien.php?id=".$ten1['id']."' class='text-decoration-none 
  text-body-secondary' target='_top'>";
                             $sql5=mysqli_query($conn,room());
-                            while ($hien_mp=mysqli_fetch_assoc($sql5)){
+                            while ($display_mp=mysqli_fetch_assoc($sql5)){
                             $sql4="SELECT  room.name_room ,belong.id_room from belong 
                             LEFT JOIN room on room.id=belong.id_room
                              LEFT JOIN user on user.id=belong.id_staff
-                             WHERE room.id=".$hien_mp['id']." AND user.id=".$ten1['id']."";
+                             WHERE room.id=".$display_mp['id']." AND user.id=".$ten1['id']."";
                              $h_tp=mysqli_query($conn,$sql4);
-                             while($hien_tphong=mysqli_fetch_assoc($h_tp)){
+                             while($display_tphong=mysqli_fetch_assoc($h_tp)){
                                     if(mysqli_num_rows($h_tp)>0){
-                                    echo "".$hien_tphong['name_room']."<br>";
+                                    echo "".$display_tphong['name_room']."<br>";
                                     }
                                     if(mysqli_num_rows($h_tp)<0){
                                         echo "Chưa có phòng nào<br>";

@@ -5,7 +5,7 @@ $client_secret = 'c9ad30718c388f1a809e05800f799954';
 $username = "baonn@doppelherz.vn";
 $password = "admin@2023";
 // Set up the URI to change after the user has granted access
-$redirect_uri = 'http://dothominhhong.com/view/code/';
+$redirect_uri = 'http://camai.doppelherz.vn/view/code/';
 
 // Set the end of the OAUTH2 server to request the access code
 $token_endpoint = 'https://oauth.hanet.com/oauth2/token';

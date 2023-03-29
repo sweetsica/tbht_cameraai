@@ -57,24 +57,24 @@ include '../config/function.php' ;?>
                     ';
                     $sql2=mysqli_query($conn,"SELECT * FROM company ORDER BY `level`");
                     if(mysqli_num_rows($sql2)>0){
-                    while($hien=mysqli_fetch_assoc($sql2)){
+                    while($display=mysqli_fetch_assoc($sql2)){
                         $k='';
                         echo '<li class="sidebar-menu-item" style="padding-top: 0px;">
-                        <a class="sidebar-menu-button" href="?mb='.$hien['id'].'&id=""" >';
-                                if($hien["name_company"]==''){
+                        <a class="sidebar-menu-button" href="?mb='.$display['id'].'&id=""" >';
+                                if($display["name_company"]==''){
                                     $k="vui long thêm tên";
                                 }
                                 else{
-                                    $k=$hien["name_company"];
+                                    $k=$display["name_company"];
                                 }
                                     echo '<span class="sidebar-menu-text">'.$k.'</span>';
                                 echo"</a>";
 
-                                $sql3=mysqli_query($conn," SELECT p.name_room, p.id From room as p left join company as b on b.id=p.id_company where b.id=".$hien['id']."");
+                                $sql3=mysqli_query($conn," SELECT p.name_room, p.id From room as p left join company as b on b.id=p.id_company where b.id=".$display['id']."");
                                 echo" <ul class='card-body'style='padding-top: 0px;'>";
-                                while($hien1=mysqli_fetch_assoc($sql3)){
-                                    echo "<li class='sidebar-menu-item'><a href='?mb=".$hien['id']."&id=".$hien1['id']."'>
-                                    <span class='sidebar-menu-text'>&nbsp&nbsp&nbsp ".$hien1['name_room']."</span>
+                                while($display1=mysqli_fetch_assoc($sql3)){
+                                    echo "<li class='sidebar-menu-item'><a href='?mb=".$display['id']."&id=".$display1['id']."'>
+                                    <span class='sidebar-menu-text'>&nbsp&nbsp&nbsp ".$display1['name_room']."</span>
                                     </a></li>";
                                     
                                 }
@@ -177,8 +177,8 @@ include '../config/function.php' ;?>
                         left join company   as b on b.id=p.id_company
                         where b.id=".$_GET['mb']." AND t.id_room='".$_GET['id']."'");
                     }
-                        while($hien1=mysqli_fetch_assoc($sql)){
-                            $logo=substr("".$hien1['fullname']."",0,1);
+                        while($display1=mysqli_fetch_assoc($sql)){
+                            $logo=substr("".$display1['fullname']."",0,1);
                             echo'
                             <tr>
 
@@ -195,10 +195,10 @@ include '../config/function.php' ;?>
                                         <div class="media-body">
 
                                             <div class="d-flex flex-column ">
-                                                <a href="indemnify.php?id='.$hien1['id_belong'].'">
+                                                <a href="indemnify.php?id='.$display1['id_belong'].'">
                                                
-                                                <p class="mb-0"> <strong class="js-lists-values-employee-name color-name">'.$hien1['fullname'].'</strong></p>
-                                                <small class="js-lists-values-employee-email text-50">'.$hien1['email'].'</small>
+                                                <p class="mb-0"> <strong class="js-lists-values-employee-name color-name">'.$display1['fullname'].'</strong></p>
+                                                <small class="js-lists-values-employee-email text-50">'.$display1['email'].'</small>
                                                 </a>
                                                 </div>
 
@@ -209,33 +209,33 @@ include '../config/function.php' ;?>
 
                                 <td>
                                     <div class="d-flex align-items-center">
-                                           <span class="js-lists-values-employer-name text-70">'.$hien1['date_birth'].'</span>
+                                           <span class="js-lists-values-employer-name text-70">'.$display1['date_birth'].'</span>
                                     </div>
                                 </td>
 
-                                <td class="text-center js-lists-values-projects small text-70">'.$hien1['date_job_receive'].'</td>
+                                <td class="text-center js-lists-values-projects small text-70">'.$display1['date_job_receive'].'</td>
 
                                 <td>
 
                                     <a href=""
-                                       class="chip chip-outline-secondary">'.$hien1['role'].'</a>
+                                       class="chip chip-outline-secondary">'.$display1['role'].'</a>
 
                                 </td>
                                 <td>
                                 <div class="text-center js-lists-values-projects small text-70">';
-                                    if(ucwords($hien1['status'])=="Đang Làm"){
+                                    if(ucwords($display1['status'])=="Đang Làm"){
                                         echo '
-                                        <span style="color:green">'.$hien1['status'].'</span>
+                                        <span style="color:green">'.$display1['status'].'</span>
                                         ';
                                     }
-                                    elseif(ucwords($hien1['status'])=="Đã Nghỉ"){
+                                    elseif(ucwords($display1['status'])=="Đã Nghỉ"){
                                         echo '
-                                        <span style="color:red;">'.$hien1['status'].'</span>
+                                        <span style="color:red;">'.$display1['status'].'</span>
                                         ';
                                     }
                                     else{
                                         echo '
-                                        <span style="color:blue;">'.$hien1['status'].'</span>
+                                        <span style="color:blue;">'.$display1['status'].'</span>
                                         ';
                                     }
                            echo'</div></td>

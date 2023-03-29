@@ -69,12 +69,12 @@
             // // $stmt2 = mysqli_prepare($this->conn, $query2);
             // $stmt1 = mysqli_prepare($this->conn, $query1);
             if(mysqli_num_rows($sql)>0){
-            while($hien=mysqli_fetch_assoc($sql)){
-                $query2="SELECT * from timekeeping where `id_belong`='".$hien['id']."'";
+            while($display=mysqli_fetch_assoc($sql)){
+                $query2="SELECT * from timekeeping where `id_belong`='".$display['id']."'";
                 $sql1=mysqli_query($this->conn,$query2);
                 if(mysqli_num_rows($sql)>0){
-                while($hien2=mysqli_fetch_assoc($sql1)){
-                    $sql2="DELETE from timekeeping where `id_belong`='".$hien2['id_belong']."'";
+                while($display2=mysqli_fetch_assoc($sql1)){
+                    $sql2="DELETE from timekeeping where `id_belong`='".$display2['id_belong']."'";
                     mysqli_query($this->conn,$sql2);
 
                 }

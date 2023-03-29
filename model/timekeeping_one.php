@@ -129,7 +129,7 @@ class data_day_one{
                             else{
                                 $date=date('Y-m-d');
                             }
-                            echo $date;
+                            
                         $x=include '../api/person/getCheckinByPlaceIdInDay.php';
                         $d=0;
                         $v=0;

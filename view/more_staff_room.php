@@ -15,11 +15,8 @@ include '../config/function.php';?>
 
                                 <ol class="breadcrumb p-0 m-0">
                                     <li class="breadcrumb-item"><a href="../index.php">Trang Chủ</a></li>
-
                                     <li class="breadcrumb-item active">
-
                                     Thêm nhân viên vào phòng ban
-
                                     </li>
                                     
                                 </ol>
@@ -79,5 +76,4 @@ include '../config/function.php';?>
 
 
 <?php 
-
 include 'body_js.php';?>

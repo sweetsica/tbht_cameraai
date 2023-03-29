@@ -33,9 +33,9 @@ function id_thuoc(){
             ";
             // while($thuoc1=mysqli_fetch_assoc($sql_thuoc1)){
                 $h_tp=mysqli_query($conn,$sql4);
-                while($hien_tphong=mysqli_fetch_assoc($h_tp)){
-                    echo "<a href='timekeeping.php?id=".$hien_tphong['id_room']."'>".$hien_tphong['name_room']."</a><br>";
-                    // return $hien_tphong['id'];
+                while($display_tphong=mysqli_fetch_assoc($h_tp)){
+                    echo "<a href='timekeeping.php?id=".$display_tphong['id_room']."'>".$display_tphong['name_room']."</a><br>";
+                    // return $display_tphong['id'];
                 }
             }
 
@@ -47,8 +47,8 @@ function tennv(){
     echo '
     <select name="ten2" data-toggle="select"
     class="form-control form-control-lg" >';
-    while($hien=mysqli_fetch_assoc($sql_ten1)){
-        echo'<option value="'.$hien['id'].'"> '.$hien['fullname'].'</option>';
+    while($display=mysqli_fetch_assoc($sql_ten1)){
+        echo'<option value="'.$display['id'].'"> '.$display['fullname'].'</option>';
     }
         echo'
         </select>
@@ -61,11 +61,11 @@ function phong_ban(){
     <select name="ban2" data-toggle="select"
     class="form-control form-control-lg" >';
 
-    while($hien=mysqli_fetch_assoc($sql_company1)){
-        $sql1=mysqli_query($conn,room().' where id_company='.$hien['id'].'');
-        echo'<optgroup label="'.$hien['name_company'].'">';
-        while($hien1=mysqli_fetch_assoc($sql1)){
-            echo "<option value='".$hien1['id']."'>".$hien1['name_room']."</option>";
+    while($display=mysqli_fetch_assoc($sql_company1)){
+        $sql1=mysqli_query($conn,room().' where id_company='.$display['id'].'');
+        echo'<optgroup label="'.$display['name_company'].'">';
+        while($display1=mysqli_fetch_assoc($sql1)){
+            echo "<option value='".$display1['id']."'>".$display1['name_room']."</option>";
             }
         echo'
         </optgroup>';

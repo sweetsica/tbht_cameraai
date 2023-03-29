@@ -32,7 +32,7 @@ $data = array(
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://dothominhhong.com/api/more/more_room.php",
+  CURLOPT_URL => "http://camai.doppelherz.vn/api/more/more_room.php",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => "",
   CURLOPT_MAXREDIRS => 10,

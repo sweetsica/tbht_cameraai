@@ -13,10 +13,10 @@ class company_launch{
             echo "<li class='sidebar-menu-item'><a href='?mb=".$_GET['mb']."&id='''>
             <span class='sidebar-menu-text co_chu' >Tất Cả</span>
             </a></li >";  
-            while($hien1=mysqli_fetch_assoc($sql3)){
-                // if($hien['id']==$hien1['id_company'])
-                echo "<li class='sidebar-menu-item'><a href='?mb=".$_GET['mb']."&id=".$hien1['id']."'>
-                <span class='sidebar-menu-text'style='color:crimson;'>".$hien1['name_room']."</span>
+            while($display1=mysqli_fetch_assoc($sql3)){
+                // if($display['id']==$display1['id_company'])
+                echo "<li class='sidebar-menu-item'><a href='?mb=".$_GET['mb']."&id=".$display1['id']."'>
+                <span class='sidebar-menu-text'style='color:crimson;'>".$display1['name_room']."</span>
                 </a></li>";
 
             }
@@ -43,8 +43,8 @@ class company_launch{
                         // left join room as p on t.mp=p.mp
                         // left join company   as b on b.id=p.id_company
                         // where b.id=".$_GET['mb']."");
-                        while($hien=mysqli_fetch_assoc($sql)){
-                            $logo=substr("".$hien['fullname']."",0,1);
+                        while($display=mysqli_fetch_assoc($sql)){
+                            $logo=substr("".$display['fullname']."",0,1);
                             echo'
                             <tr>
 
@@ -61,9 +61,9 @@ class company_launch{
                                         <div class="media-body">
 
                                             <div class="d-flex flex-column ">
-                                                <a href="account.php?id='.$hien['id'].'">
-                                                <p class="mb-0"> <strong class="js-lists-values-employee-name color-name">'.$hien['fullname'].'</strong></p>
-                                                <small class="js-lists-values-employee-email text-50">'.$hien['email'].'</small>
+                                                <a href="account.php?id='.$display['id'].'">
+                                                <p class="mb-0"> <strong class="js-lists-values-employee-name color-name">'.$display['fullname'].'</strong></p>
+                                                <small class="js-lists-values-employee-email text-50">'.$display['email'].'</small>
                                                 </a>
                                                 </div>
 
@@ -74,33 +74,33 @@ class company_launch{
 
                                 <td>
                                     <div class="d-flex align-items-center">
-                                           <span class="js-lists-values-employer-name text-70">'.$hien['date_birth'].'</span>
+                                           <span class="js-lists-values-employer-name text-70">'.$display['date_birth'].'</span>
                                     </div>
                                 </td>
 
-                                <td class="text-center js-lists-values-projects small text-70">'.$hien['date_job_receive'].'</td>
+                                <td class="text-center js-lists-values-projects small text-70">'.$display['date_job_receive'].'</td>
 
                                 <td>
 
                                     <a href=""
-                                       class="chip chip-outline-secondary">'.$hien['role'].'</a>
+                                       class="chip chip-outline-secondary">'.$display['role'].'</a>
 
                                 </td>
                                 <td>
                                 <div class="text-center js-lists-values-projects small text-70">';
-                                    if(ucwords($hien['status'])=="Đang Làm"){
+                                    if(ucwords($display['status'])=="Đang Làm"){
                                         echo '
-                                        <span style="color:green">'.$hien['status'].'</span>
+                                        <span style="color:green">'.$display['status'].'</span>
                                         ';
                                     }
-                                    elseif(ucwords($hien['status'])=="Đã Nghỉ"){
+                                    elseif(ucwords($display['status'])=="Đã Nghỉ"){
                                         echo '
-                                        <span style="color:red;">'.$hien['status'].'</span>
+                                        <span style="color:red;">'.$display['status'].'</span>
                                         ';
                                     }
                                     else{
                                         echo '
-                                        <span style="color:blue;">'.$hien['status'].'</span>
+                                        <span style="color:blue;">'.$display['status'].'</span>
                                         ';
                                     }
                            echo'</div></td>

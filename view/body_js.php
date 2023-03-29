@@ -112,15 +112,15 @@
                                     ';
                                     $sql2=mysqli_query($conn,"SELECT * FROM company ORDER BY `level`");
                                     if(mysqli_num_rows($sql2)>0){
-                                    while($hien=mysqli_fetch_assoc($sql2)){
+                                    while($display=mysqli_fetch_assoc($sql2)){
                                         $k='';
                                         echo '<li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="company_launch.php?mb='.$hien['id'].'&id=""" >';
-                                                if($hien["name_company"]==''){
+                                        <a class="sidebar-menu-button" href="company_launch.php?mb='.$display['id'].'&id=""" >';
+                                                if($display["name_company"]==''){
                                                     $k="vui long thêm tên";
                                                 }
                                                 else{
-                                                    $k=$hien["name_company"];
+                                                    $k=$display["name_company"];
                                                 }
                                                     echo '<span class="sidebar-menu-text">'.$k.'</span>';
                                                 echo"</a>";

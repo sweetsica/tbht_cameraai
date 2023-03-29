@@ -2,7 +2,7 @@
 class staff{
     private $conn;
     private $tong_dong;
-    private $hien_tai;
+    private $display_tai;
 
     public function __construct($db)
     {

@@ -48,8 +48,8 @@ include '../config/function.php';?>
                                                     class="form-control form-control-lg" >
                                                     <?php 
                                                         $sql=mysqli_query($conn,company());
-                                                        while($hien=mysqli_fetch_assoc($sql)){
-                                                            echo "<option value='".$hien['id']."'>".$hien['name_company']."</option>";
+                                                        while($display=mysqli_fetch_assoc($sql)){
+                                                            echo "<option value='".$display['id']."'>".$display['name_company']."</option>";
                                                         }
                                                     ?>
                                                     </select>

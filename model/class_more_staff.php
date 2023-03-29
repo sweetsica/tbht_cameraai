@@ -16,12 +16,12 @@ class more_staff{
     }   
         public function company(){
             $sql = mysqli_query($this->conn, company());
-            while($hien = mysqli_fetch_assoc($sql)){
-                $sql1 = mysqli_query($this->conn, room() . ' where id_company=' . $hien['id'] . '');
+            while($display = mysqli_fetch_assoc($sql)){
+                $sql1 = mysqli_query($this->conn, room() . ' where id_company=' . $display['id'] . '');
                 echo "
-                <optgroup label='".$hien['name_company']."'>";
-                while($hien1=mysqli_fetch_assoc($sql1)){
-                    echo "<option value='".$hien1['id']."'>".$hien1['name_room']."</option>";
+                <optgroup label='".$display['name_company']."'>";
+                while($display1=mysqli_fetch_assoc($sql1)){
+                    echo "<option value='".$display1['id']."'>".$display1['name_room']."</option>";
                 }
                 echo "</optgroup>";
             }
